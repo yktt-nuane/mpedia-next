@@ -30,7 +30,7 @@ export default function Home({ articles, tags }: Props) {
               MPEDIA
             </Text>
             <Text as='h1' marginTop={0} color='white' variant='extraLarge'>
-              ***
+              *****
             </Text>
           </Box>
           <Box width='100%'>
