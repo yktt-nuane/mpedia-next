@@ -56,7 +56,7 @@ export default function Home({ articles, tags }: Props) {
       </Flex>
       <Flex padding={2} justifyContent='center'>
         <Flex
-          width={{ base: '100%', md: '1040px' }}
+          width={{ base: '100%', md: '1240px' }}
           justifyContent='space-between'
           alignItems='center'
           flexDirection={{ base: 'column', md: 'row' }}

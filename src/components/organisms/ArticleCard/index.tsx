@@ -57,8 +57,8 @@ const ArticleCard = ({
             variant='medium'
             paddingTop={2}
             padding={2}
-            width={'250px'}
-            height={'100px'}
+            width={'220px'}
+            height={'120px'}
           >
             {title}
             <DateTime datetime={updatedAt} />
