@@ -1,19 +1,19 @@
-import Link from 'next/link'
-import { client } from '../libs/client'
-import type { Article, Tag } from '../types'
-import Button from 'components/atoms/Button'
-import Separator from 'components/atoms/Separator'
-import Text from 'components/atoms/Text'
-import Box from 'components/layout/Box'
-import Flex from 'components/layout/Flex'
-import ArticleCard from 'components/organisms/ArticleCard'
-import ArticleCardCarousel from 'components/organisms/ArticleCardCarousel'
-import Layout from 'components/templates/Layout'
+import Link from 'next/link';
+import { client } from '../libs/client';
+import type { Article, Tag } from '../types';
+import Button from 'components/atoms/Button';
+import Separator from 'components/atoms/Separator';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
+import ArticleCard from 'components/organisms/ArticleCard';
+import ArticleCardCarousel from 'components/organisms/ArticleCardCarousel';
+import Layout from 'components/templates/Layout';
 
 type Props = {
-  articles: Article[]
-  tags: Tag[]
-}
+  articles: Article[];
+  tags: Tag[];
+};
 
 export default function Home({ articles, tags }: Props) {
   return (
@@ -67,12 +67,7 @@ export default function Home({ articles, tags }: Props) {
                 {tags.map((tag) => (
                   <Button key={tag.id} padding={1} margin={1}>
                     <Link href={`/tags/${tag.id}`}>
-                      <Text
-                        as='a'
-                        color='white'
-                        padding={0}
-                        variant='mediumLarge'
-                      >
+                      <Text as='a' color='white' padding={0} variant='mediumLarge'>
                         # {tag.tag_name}
                       </Text>
                     </Link>
@@ -103,17 +98,18 @@ export default function Home({ articles, tags }: Props) {
         </Flex>
       </Flex>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
-  const article = await client.get({ endpoint: 'articles' })
-  const tag = await client.get({ endpoint: 'tags' })
+  const article = await client.get({ endpoint: 'articles' });
+  const tag = await client.get({ endpoint: 'tags' });
 
   return {
     props: {
       articles: article.contents,
       tags: tag.contents,
     },
-  }
-}
+    revalidate: 60,
+  };
+};
