@@ -1,3 +1,12 @@
+// ユーザー
+export type User = {
+  id: number;
+  username: string;
+  displayName: string;
+  email: string;
+  description: string;
+};
+
 // 記事
 export type Article = {
   id: string;
