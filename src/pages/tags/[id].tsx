@@ -11,6 +11,7 @@ import type { Article } from 'types'
 
 export default function TagsId({ articles }: any) {
   const router = useRouter()
+
   return (
     <Layout>
       <Flex paddingBottom={2} justifyContent='center'>
@@ -69,5 +70,6 @@ export const getStaticProps = async (context: any) => {
     props: {
       articles: data.contents,
     },
+    revalidate: 60,
   }
 }

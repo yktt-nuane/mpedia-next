@@ -16,6 +16,8 @@ type Props = {
 }
 
 export default function Home({ articles, tags }: Props) {
+  console.log(articles)
+  console.log(tags)
   return (
     <Layout>
       <Flex padding={2} justifyContent='center' backgroundColor='primary'>
@@ -108,13 +110,17 @@ export default function Home({ articles, tags }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const article = await client.get({ endpoint: 'articles' })
-  const tag = await client.get({ endpoint: 'tags' })
+  const article = await client.get({
+    endpoint: 'articles',
+    queries: { limit: 18 },
+  })
+  const tag = await client.get({ endpoint: 'tags', queries: { limit: 100 } })
 
   return {
     props: {
       articles: article.contents,
       tags: tag.contents,
     },
+    revalidate: 60,
   }
 }
