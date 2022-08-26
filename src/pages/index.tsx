@@ -114,7 +114,7 @@ export const getStaticProps = async () => {
     endpoint: 'articles',
     queries: { limit: 18 },
   })
-  const tag = await client.get({ endpoint: 'tags', queries: { limit: 100 } })
+  const tag = await client.get({ endpoint: 'tags', queries: { limit: 50 } })
 
   return {
     props: {

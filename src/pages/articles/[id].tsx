@@ -74,6 +74,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const idExceptArray = id instanceof Array ? id[0] : id
   const data = await client.get({
     endpoint: 'articles',
+    queries: { limit: 100 },
     contentId: idExceptArray,
   })
 
