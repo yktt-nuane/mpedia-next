@@ -63,7 +63,7 @@ export const getStaticProps = async (context: any) => {
   const id = context.params.id
   const data = await client.get({
     endpoint: 'articles',
-    queries: { filters: `tags[contains]${id}` },
+    queries: { filters: `tags[contains]${id}`, limit: 100 },
   })
 
   return {
