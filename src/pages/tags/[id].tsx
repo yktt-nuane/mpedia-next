@@ -51,7 +51,7 @@ export default function TagsId({ articles }: any) {
 
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: 'tags' })
+  const data = await client.get({ endpoint: 'tags', queries: { limit: 100 } })
   /* eslint @typescript-eslint/no-explicit-any: 0 */
   const paths = data.contents.map((content: any) => `/tags/${content.id}`)
   return { paths, fallback: false }
