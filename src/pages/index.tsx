@@ -35,7 +35,7 @@ export default function Home({ articles, tags }: Props) {
           </Box>
         </Flex>
       </Flex>
-      <Flex padding={2} justifyContent='center'>
+      <Flex marginLeft={2} padding={2} justifyContent='center'>
         <Flex
           width={{ base: '100%', md: '1600px' }}
           justifyContent='space-between'
@@ -91,7 +91,7 @@ export default function Home({ articles, tags }: Props) {
 export const getStaticProps = async () => {
   const article = await client.get({
     endpoint: 'articles',
-    queries: { limit: 18 },
+    queries: { limit: 100 },
   })
   const tag = await client.get({
     endpoint: 'tags',

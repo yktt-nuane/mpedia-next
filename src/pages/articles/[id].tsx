@@ -38,7 +38,12 @@ export default function Article({ article }: Props) {
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Box>
-            <Flex paddingTop={2} paddingBottom={0} justifyContent='center'>
+            <Flex
+              marginLeft={2}
+              paddingTop={2}
+              paddingBottom={0}
+              justifyContent='center'
+            >
               <ArticleCard
                 variant='detail'
                 title={article.title}

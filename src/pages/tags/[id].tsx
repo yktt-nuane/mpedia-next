@@ -14,7 +14,7 @@ export default function TagsId({ articles }: any) {
 
   return (
     <Layout>
-      <Flex paddingBottom={2} justifyContent='center'>
+      <Flex marginLeft={2} paddingBottom={2} justifyContent='center'>
         <Box
           paddingLeft={{ base: 2, md: 0 }}
           paddingRight={{ base: 2, md: 0 }}
