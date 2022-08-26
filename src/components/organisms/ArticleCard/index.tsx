@@ -53,12 +53,11 @@ const ArticleCard = ({
       {variant === 'small' && (
         <Box marginTop={1} backgroundColor='#d6e8fd'>
           <Text
-            as='h3'
+            as='h4'
             variant='medium'
             paddingTop={2}
             padding={2}
-            width={'220px'}
-            height={'120px'}
+            width={'250px'}
           >
             {title}
             <DateTime datetime={updatedAt} />

@@ -56,7 +56,7 @@ export default function Home({ articles, tags }: Props) {
       </Flex>
       <Flex padding={2} justifyContent='center'>
         <Flex
-          width={{ base: '100%', md: '1240px' }}
+          width={{ base: '100%', md: '1600px' }}
           justifyContent='space-between'
           alignItems='center'
           flexDirection={{ base: 'column', md: 'row' }}
@@ -72,6 +72,7 @@ export default function Home({ articles, tags }: Props) {
                         color='white'
                         padding={0}
                         variant='mediumLarge'
+                        fontSize={'15px'}
                       >
                         # {tag.tag_name}
                       </Text>
