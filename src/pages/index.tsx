@@ -16,8 +16,6 @@ type Props = {
 }
 
 export default function Home({ articles, tags }: Props) {
-  console.log(articles)
-  console.log(tags)
   return (
     <Layout>
       <Flex padding={2} justifyContent='center' backgroundColor='primary'>
@@ -31,27 +29,8 @@ export default function Home({ articles, tags }: Props) {
             <Text as='h1' marginBottom={0} color='white' variant='extraLarge'>
               MPEDIA
             </Text>
-            <Text as='h1' marginTop={0} color='white' variant='extraLarge'>
-              *****
-            </Text>
-          </Box>
-          <Box width='100%'>
-            <Text as='p' color='white' variant='mediumLarge'>
-              病院ホームページは
-              <Text
-                as='a'
-                style={{ textDecoration: 'underline' }}
-                target='_blank'
-                href='https://www.ogaki-mh.jp/'
-                variant='mediumLarge'
-                color='white'
-              >
-                こちら
-              </Text>
-              を見てください。
-            </Text>
-            <Text as='p' color='white' variant='mediumLarge'>
-              まだ作成中です。
+            <Text as='p' marginTop={0} color='white' variant='extraLarge'>
+              well-trusted Medical Pedia for Professionals.
             </Text>
           </Box>
         </Flex>
@@ -114,7 +93,14 @@ export const getStaticProps = async () => {
     endpoint: 'articles',
     queries: { limit: 18 },
   })
-  const tag = await client.get({ endpoint: 'tags', queries: { limit: 50 } })
+  const tag = await client.get({
+    endpoint: 'tags',
+    queries: {
+      filters:
+        'tag_name[not_equals]集中治療[and]tag_name[not_equals]麻酔[and]tag_name[not_equals]抄読会[and]tag_name[not_equals]勉強会',
+      limit: 50,
+    },
+  })
 
   return {
     props: {

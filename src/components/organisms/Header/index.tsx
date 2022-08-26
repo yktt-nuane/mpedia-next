@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import AppLogo from 'components/atoms/AppLogo'
 import Button from 'components/atoms/Button'
-import { SearchIcon, PersonIcon } from 'components/atoms/IconButton'
+import { PersonIcon } from 'components/atoms/IconButton'
 import Spinner from 'components/atoms/Spinner'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
@@ -69,22 +69,27 @@ const Header = () => {
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href='/search/guideline' passHref>
+              <Link href='/tags/study' passHref>
+                <Anchor as='a'>勉強会</Anchor>
+              </Link>
+            </Box>
+          </NavLink>
+          <NavLink>
+            <Box display={{ base: 'none', md: 'block' }}>
+              <Link href='/tags/paper' passHref>
+                <Anchor as='a'>抄読会</Anchor>
+              </Link>
+            </Box>
+          </NavLink>
+          <NavLink>
+            <Box display={{ base: 'none', md: 'block' }}>
+              <Link href='/guideline' passHref>
                 <Anchor as='a'>ガイドライン</Anchor>
               </Link>
             </Box>
           </NavLink>
         </Nav>
         <Nav as='nav' height='56px' alignItems='center'>
-          <NavLink>
-            <Box display={{ base: 'block', md: 'none' }}>
-              <Link href='/search' passHref>
-                <Anchor as='a'>
-                  <SearchIcon />
-                </Anchor>
-              </Link>
-            </Box>
-          </NavLink>
           <NavLink>
             {(() => {
               // 認証していたらアイコンを表示

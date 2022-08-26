@@ -18,7 +18,7 @@ export default function TagsId({ articles }: any) {
         <Box
           paddingLeft={{ base: 2, md: 0 }}
           paddingRight={{ base: 2, md: 0 }}
-          width={{ base: '100%', md: '1040px' }}
+          width={{ base: '100%', md: '1600px' }}
         >
           <Text as='h2' fontWeight='bold' variant='extraLarge' paddingLeft={3}>
             {router.query.id}

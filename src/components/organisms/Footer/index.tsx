@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styled from 'styled-components'
 import { GitHubIcon } from 'components/atoms/IconButton'
 import Text from 'components/atoms/Text'
@@ -18,26 +17,14 @@ const Anchor = styled(Text)`
 const Footer = () => {
   return (
     <footer>
-      <Flex flexDirection={{ base: 'column', md: 'row' }}>
+      <Flex paddingLeft={3} paddingRight={3} justifyContent='space-between'>
         <Box
           minWidth={{ base: '100%', md: '120px' }}
           paddingRight={{ base: 0, md: 1 }}
         >
           <nav>
-            <Box marginBottom={2}>
-              <Link href='/' passHref>
-                <Anchor as='a'>トップ</Anchor>
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href='/' passHref>
-                <Anchor as='a'>募集</Anchor>
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href='/' passHref>
-                <Anchor as='a'>お知らせ</Anchor>
-              </Link>
+            <Box marginBottom={1}>
+              <Text></Text>
             </Box>
           </nav>
         </Box>
@@ -46,34 +33,19 @@ const Footer = () => {
           paddingRight={{ base: 0, md: 1 }}
         >
           <nav>
-            <Box marginBottom={2}>
-              <Link href='/' passHref>
-                <Anchor as='a'>利用規約</Anchor>
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href='/' passHref>
-                <Anchor as='a'>プライバシーポリシー</Anchor>
-              </Link>
-            </Box>
-            <Box marginBottom={2}>
-              <Link href='/' passHref>
-                <Anchor as='a'>諸々</Anchor>
-              </Link>
+            <Box marginBottom={1}>
+              <Text>© 2022 T.Yokoyama. All rights reserved.</Text>
             </Box>
           </nav>
         </Box>
         <Box minWidth={{ base: '100%', md: '120px' }}>
           <nav>
-            <Anchor as='a' href='https://github.com/yktt-nuane' target='_blank'>
-              <GitHubIcon size={22} />
+            <Anchor as='a' href='' target='_blank'>
+              <GitHubIcon size={0} />
             </Anchor>
           </nav>
         </Box>
       </Flex>
-      <Box paddingTop={3} paddingBottom={2}>
-        <Text>© 2022 T.yokoyama. All rights reserved.</Text>
-      </Box>
     </footer>
   )
 }
