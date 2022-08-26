@@ -116,6 +116,5 @@ export const getStaticProps = async () => {
       articles: article.contents,
       tags: tag.contents,
     },
-    revalidate: 60,
   }
 }
