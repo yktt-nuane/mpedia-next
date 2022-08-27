@@ -18,7 +18,7 @@ type Props = {
 export default function Home({ articles, tags }: Props) {
   return (
     <Layout>
-      <Flex padding={2} justifyContent='center' backgroundColor='primary'>
+      <Flex padding={1} justifyContent='center' backgroundColor='primary'>
         <Flex
           width={{ base: '100%', md: '1040px' }}
           justifyContent='space-between'
@@ -29,8 +29,8 @@ export default function Home({ articles, tags }: Props) {
             <Text as='h1' marginBottom={0} color='white' variant='extraLarge'>
               MPEDIA
             </Text>
-            <Text as='p' marginTop={0} color='white' variant='extraLarge'>
-              well-trusted Medical Pedia for Professionals.
+            <Text as='p' marginTop={0} color='white' variant='medium'>
+              well-trusted <b>M</b>edical <b>Pedia</b> for Professionals.
             </Text>
           </Box>
         </Flex>

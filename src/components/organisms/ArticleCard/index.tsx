@@ -55,13 +55,13 @@ const ArticleCard = ({
           <Text
             as='h4'
             variant='medium'
-            paddingTop={2}
-            padding={2}
-            width={'220px'}
+            padding={1}
+            width={'160px'}
+            height={'80px'}
+            fontSize={'13px'}
           >
             {title}
             <DateTime datetime={updatedAt} />
-            {tag_name}
           </Text>
         </Box>
       )}
