@@ -1,13 +1,12 @@
+import { useUser } from '@auth0/nextjs-auth0'
+
 import Link from 'next/link'
 import styled from 'styled-components'
 import AppLogo from 'components/atoms/AppLogo'
-import Button from 'components/atoms/Button'
-import { PersonIcon } from 'components/atoms/IconButton'
-import Spinner from 'components/atoms/Spinner'
+
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
-import { useAuthContext } from 'contexts/AuthContext'
 
 // ヘッダーのルート
 const HeaderRoot = styled.header`
@@ -40,7 +39,10 @@ const Anchor = styled(Text)`
  * ヘッダー
  */
 const Header = () => {
-  const { authUser, isLoading } = useAuthContext()
+  const { user, error, isLoading } = useUser()
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>{error.message}</div>
 
   return (
     <HeaderRoot>
@@ -55,7 +57,7 @@ const Header = () => {
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href='/tags/anesthesia' passHref>
+              <Link href='/anesthesia' passHref>
                 <Anchor as='a'>麻酔</Anchor>
               </Link>
             </Box>
@@ -92,47 +94,19 @@ const Header = () => {
         <Nav as='nav' height='56px' alignItems='center'>
           <NavLink>
             {(() => {
-              // 認証していたらアイコンを表示
-              if (authUser) {
+              if (user) {
                 return (
-                  <Link href={`/users/${authUser.id}`} passHref>
-                    <a>yktt</a>
-                  </Link>
-                )
-              } else if (isLoading) {
-                // ロード中はスピナーを表示
-                return <Spinner size={20} strokeWidth={2} />
-              } else {
-                // サインインしてない場合はアイコンを表示
-                return (
-                  <Link href='/signin' passHref>
-                    <Anchor as='a'>
-                      <PersonIcon size={24} />
-                    </Anchor>
-                  </Link>
+                  <header>
+                    Welcome {user.name}!{' '}
+                    <Link href='/api/auth/logout'>Logout</Link>
+                  </header>
                 )
               }
-            })()}
-          </NavLink>
-          <NavLink>
-            {(() => {
-              // 認証していたらアイコンを表示
-              if (authUser) {
-                return (
-                  <Link
-                    href='https://yktt.microcms.io/apis/articles/create'
-                    passHref
-                  >
-                    <Button as='a'>投稿</Button>
-                  </Link>
-                )
-              } else if (isLoading) {
-                // ロード中はスピナーを表示
-                return <Spinner size={20} strokeWidth={2} />
-              } else {
-                // サインインしてない場合はアイコンを表示
-                return ''
-              }
+              return (
+                <header>
+                  <Link href='/api/auth/login'>Login</Link>
+                </header>
+              )
             })()}
           </NavLink>
         </Nav>

@@ -1,12 +1,11 @@
+import { UserProvider } from '@auth0/nextjs-auth0'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { SWRConfig } from 'swr'
-import { AuthContextProvider } from '../contexts/AuthContext'
 import GlobalSpinnerContextProvider from '../contexts/GlobalSpinnerContext'
 import GlobalSpinner from 'components/organisms/GlobalSpinner'
 import { theme } from 'themes'
-import type { ApiContext } from 'types'
 import { fetcher } from 'utils'
 
 // グローバルのスタイル
@@ -36,11 +35,8 @@ ol, ul {
 }
 `
 
-const context: ApiContext = {
-  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
-}
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const { user } = pageProps
   return (
     <>
       <Head>
@@ -72,10 +68,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           }}
         >
           <GlobalSpinnerContextProvider>
-            <AuthContextProvider context={context}>
+            <UserProvider user={user}>
               <GlobalSpinner />
               <Component {...pageProps} />
-            </AuthContextProvider>
+            </UserProvider>
           </GlobalSpinnerContextProvider>
         </SWRConfig>
       </ThemeProvider>
