@@ -45,7 +45,7 @@ export default function Article({ user, article }: Props) {
                 内容には、私見やローカルルールが含まれていますので、参考資料としてご覧ください。
               </Text>
               <Text as='p' marginTop={0} color='white' variant='medium'>
-                閲覧に際して、ログインをお願い致します。
+                閲覧に際して、画面右上のボタンからログインをお願い致します。
               </Text>
             </Box>
           </Flex>
