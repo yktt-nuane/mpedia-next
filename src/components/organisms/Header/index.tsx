@@ -56,7 +56,7 @@ const Header = () => {
             </NavLink>
             <NavLink>
               <Box display={{ base: 'none', md: 'block' }}>
-                <Link href='/tags/anesthesia' passHref>
+                <Link href='/anesthesia' passHref>
                   <Anchor as='a'>麻酔</Anchor>
                 </Link>
               </Box>
@@ -113,28 +113,28 @@ const Header = () => {
             </Link>
           </NavLink>
           <NavLink>
-            <Box display={{ base: 'none', md: 'block' }}>
-              <Link href='/tags/anesthesia' passHref>
+            <Box display={{ base: 'flex', md: 'block' }}>
+              <Link href='/anesthesia' passHref>
                 <Anchor as='a'>麻酔</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
-            <Box display={{ base: 'none', md: 'block' }}>
+            <Box display={{ base: 'flex', md: 'block' }}>
               <Link href='/tags/icu' passHref>
                 <Anchor as='a'>集中治療</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
-            <Box display={{ base: 'none', md: 'block' }}>
+            <Box display={{ base: 'flex', md: 'block' }}>
               <Link href='/tags/study' passHref>
                 <Anchor as='a'>勉強会</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
-            <Box display={{ base: 'none', md: 'block' }}>
+            <Box display={{ base: 'flex', md: 'block' }}>
               <Link href='/tags/paper' passHref>
                 <Anchor as='a'>抄読会</Anchor>
               </Link>
